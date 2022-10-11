@@ -19,5 +19,5 @@ app.include_router(video_api)
 async def root():
     return RedirectResponse('/docs')
 
-if __name__ == "__main__":
-    uvicorn.run(app)
+# if __name__ == "__main__":
+#     uvicorn.run(app)
