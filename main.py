@@ -17,3 +17,6 @@ app.include_router(video_api)
 @app.get('/')
 async def root():
     return RedirectResponse('/docs')
+
+if __name__ == "__main__":
+    uvicorn.run(app, host='youtube-api.up.railway.app', port=8000)
