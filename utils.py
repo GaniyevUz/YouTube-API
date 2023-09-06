@@ -1,3 +1,6 @@
+from re import search
+
+
 def humanbytes(size):
     # https://stackoverflow.com/a/49361727/4723940
     # 2**10 = 1024
@@ -29,3 +32,16 @@ def time_formatter(seconds: int) -> str:
         if v_m != 0:
             result += f" {v_m} {age} "
     return result
+
+
+def extract_video_id(url):
+    # Regular expression pattern to match YouTube video IDs
+    pattern = r"(?:v=|\/videos\/|embed\/|youtu.be\/|\/v\/|\/e\/|watch\?v=|&v=|\/watch\?v=)([a-zA-Z0-9_-]{11})"
+
+    # Search for the pattern in the URL
+    match = search(pattern, url)
+
+    # Check if a match was found
+    if match:
+        video_id = match.group(1)
+        return video_id
